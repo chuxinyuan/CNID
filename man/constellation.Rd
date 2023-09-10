@@ -19,7 +19,7 @@ obtain constellation information by ID number.
 
 id = c(
 "652801197305161555", 
-"110101840116177"
+"110101841125178"
 )
 constellation(id)
 
