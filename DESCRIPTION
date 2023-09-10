@@ -1,0 +1,22 @@
+Package: CNID
+Type: Package
+Title: Access Internal Information Based on Chinese ID Number
+Version: 1.0.0
+Authors@R: person("Xinyuan", "Chu", email = "chuxinyuan@outlook.com", role = c("aut", "cre"))
+Maintainer: Xinyuan Chu <chuxinyuan@outlook.com>
+Date: 2023-09-10 02:43:53 UTC
+Description: The Chinese ID number contains a lot of information, this package 
+    helps you get the date of birth, age, age based on year, gender, region, zodiac, 
+    constellation information from the Chinese ID number.
+License: MIT + file LICENSE
+URL: https://gitlab.com/chuxinyuan/cnid
+BugReports: https://gitlab.com/chuxinyuan/cnid/-/issues
+Depends: 
+    R (>= 3.5.0)
+Imports:
+    lubridate
+RoxygenNote: 7.2.3
+Suggests: 
+    testthat (>= 2.1.0)
+Encoding: UTF-8
+LazyData: true
