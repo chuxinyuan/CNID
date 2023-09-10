@@ -4,7 +4,7 @@ Title: Access Internal Information Based on Chinese ID Number
 Version: 1.0.0
 Authors@R: person("Xinyuan", "Chu", email = "chuxinyuan@outlook.com", role = c("aut", "cre"))
 Maintainer: Xinyuan Chu <chuxinyuan@outlook.com>
-Date: 2023-09-10 02:43:53 UTC
+Date: 2023-09-10 05:52:30 UTC
 Description: The Chinese ID number contains a lot of information, this package 
     helps you get the date of birth, age, age based on year, gender, region, zodiac, 
     constellation information from the Chinese ID number.

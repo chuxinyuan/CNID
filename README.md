@@ -9,7 +9,7 @@ The Chinese ID number contains a lot of information, this package helps you get 
 
 ``` r
 # Install development version from GitLab
-remotes::install_gitlab("chuxinyuan/CNID")
+remotes::install_gitlab("chuxinyuan/cnid")
 # Install from CRAN
 install.packages("CNID")
 ```
@@ -21,7 +21,7 @@ Obtain full information by ID number.
 ``` r
 id = c(
   "652801197305161555", 
-  "110101840116177"
+  "110101841125178"
 )
 cnid_info(id)
 ```
@@ -37,7 +37,7 @@ Obtain date of birth, age, gender, etc.
 ``` r
 id = c(
   "652801197305161555", 
-  "110101840116177"
+  "110101841125178"
 )
 
 birth_year(id)
