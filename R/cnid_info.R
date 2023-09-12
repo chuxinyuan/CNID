@@ -44,7 +44,7 @@ cnid_info = function(id) {
       gender_code[i] = as.integer(substr(id[i], 15, 15))
       region_code[i] = as.integer(substr(id[i], 1, 6))
     } else if (
-        nchar(id[i]) == 18 && 
+        nchar(id[i]) == 18 & 
         (substr(id[i], 18, 18) %in% as.character(c(0:9, "X")))
       ) {
       # 18 digit ID number
@@ -68,7 +68,7 @@ cnid_info = function(id) {
       if (as.integer(y) > current_year) {
         birth_year[i] = NA
       } else {
-        birth_year[i] = as.integer(birth_year[i])
+        birth_year[i] = birth_year[i]
       }
     } else {
       birth_year[i] = NA
@@ -79,10 +79,10 @@ cnid_info = function(id) {
   for (i in 1:length(birth_month)) {
     m = birth_month[i]
     if (grepl("^\\d+$", m) == TRUE) {
-      if (as.integer(m) < 1 || as.integer(m) > 12) {
+      if (as.integer(m) < 1 | as.integer(m) > 12) {
         birth_month[i] = NA
       } else {
-        birth_month[i] = as.integer(birth_month[i])
+        birth_month[i] = birth_month[i]
       }
     } else {
       birth_month[i] = NA
@@ -93,10 +93,10 @@ cnid_info = function(id) {
   for (i in 1:length(birth_day)) {
     d = birth_day[i]
     if (grepl("^\\d+$", d) == TRUE) {
-      if (as.integer(d) < 1 || as.integer(d) > 31) {
+      if (as.integer(d) < 1 | as.integer(d) > 31) {
         birth_day[i] = NA
       } else {
-        birth_day[i] = as.integer(birth_day[i])
+        birth_day[i] = birth_day[i]
       }
     } else {
       birth_day[i] = NA
@@ -117,7 +117,7 @@ cnid_info = function(id) {
     y = birth_year[i]
     m = birth_month[i]
     d = birth_day[i]
-    if (is.na(y) || is.na(m) || is.na(d)) {
+    if (is.na(y) | is.na(m) | is.na(d)) {
       birth_date[i] = NA
     } else {
       if (d <= mdays(m, y)) {
@@ -141,8 +141,8 @@ cnid_info = function(id) {
       age[i] = NA
     } else {
       if (
-        current_month < m || 
-        (current_month == m && current_day < d)
+        current_month < m |
+        (current_month == m & current_day < d)
       ) {
         age[i] = current_year - y - 1
       } else {
@@ -211,33 +211,40 @@ cnid_info = function(id) {
     )
     xinzuo = character(length = length(birth_month))
     for (i in 1:length(birth_month)) {
+      y = birth_year[i]
       m = birth_month[i]
       d = birth_day[i]
-      if (is.na(m) || is.na(d)) {
+      bd = birth_date[i]
+      if (is.na(m) | is.na(d)) {
         xinzuo[i] = NA
-      } else if ((m == 1 && d >= 20) ||(m == 2 && d <= 18)) {
+      } else if (
+        is.na(y) == FALSE & is.na(m) == FALSE & 
+        is.na(d) == FALSE & is.na(bd) == TRUE
+      ) {
+        xinzuo[i] = NA
+      } else if ((m == 1 & d >= 20) | (m == 2 & d <= 18)) {
         xinzuo[i] = constellations[1]  # shuiping(0120-0218)
-      } else if ((m == 2 && d >= 19) || (m == 3 && d <= 20)) {
+      } else if ((m == 2 & d >= 19) | (m == 3 & d <= 20)) {
         xinzuo[i] = constellations[2]  # shuangyu(0219-0320)
-      } else if ((m == 3 && d >= 21) ||(m == 4 && d <= 19)) {
+      } else if ((m == 3 & d >= 21) | (m == 4 & d <= 19)) {
         xinzuo[i] = constellations[3]  # baiyang(0321-0419)
-      } else if ((m == 4 && d >= 20) ||(m == 5 && d <= 20)) {
+      } else if ((m == 4 & d >= 20) | (m == 5 & d <= 20)) {
         xinzuo[i] = constellations[4]  # jinniu(0420-0520)
-      } else if ((m == 5 && d >= 21) ||(m == 6 && d <= 20)) {
+      } else if ((m == 5 & d >= 21) | (m == 6 & d <= 20)) {
         xinzuo[i] = constellations[5]  # shuangzi(0521-0620)
-      } else if ((m == 6 && d >= 21) ||(m == 7 && d <= 22)) {
+      } else if ((m == 6 & d >= 21) | (m == 7 & d <= 22)) {
         xinzuo[i] = constellations[6]  # juxie(0621-0722)
-      } else if ((m == 7 && d >= 23) ||(m == 8 && d <= 22)) {
+      } else if ((m == 7 & d >= 23) | (m == 8 & d <= 22)) {
         xinzuo[i] = constellations[7]  # shizi(0723-0822)
-      } else if ((m == 8 && d >= 23) ||(m == 9 && d <= 22)) {
+      } else if ((m == 8 & d >= 23) | (m == 9 & d <= 22)) {
         xinzuo[i] = constellations[8]  # chunv(0823-0922)
-      } else if ((m == 9 && d >= 23) ||(m == 10 && d <= 22)) {
+      } else if ((m == 9 & d >= 23) | (m == 10 & d <= 22)) {
         xinzuo[i] = constellations[9]  # tiancheng(0923-1022)
-      } else if ((m == 10 && d >= 23) ||(m == 11 && d <= 21)) {
+      } else if ((m == 10 & d >= 23) | (m == 11 & d <= 21)) {
         xinzuo[i] = constellations[10]  # tianxie(1023-1121)
-      } else if ((m == 11 && d >= 22) ||(m == 12 && d <= 21)) {
+      } else if ((m == 11 & d >= 22) | (m == 12 & d <= 21)) {
         xinzuo[i] = constellations[11]  # sheshou(1122-1221)
-      } else if ((m == 12 && d >= 22) ||(m == 1 && d <= 19)) {
+      } else if ((m == 12 & d >= 22) | (m == 1 & d <= 19)) {
         xinzuo[i] = constellations[12]  # mojie(1222-0119)
       } else {
         xinzuo[i] = NA
