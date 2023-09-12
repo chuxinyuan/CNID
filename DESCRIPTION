@@ -9,7 +9,7 @@ Description: CNID package helps you get gender, age, and more from Chinese ID nu
 License: MIT + file LICENSE
 URL: https://gitlab.com/chuxinyuan/cnid
 BugReports: https://gitlab.com/chuxinyuan/cnid/-/issues
-Depends: R (>= 3.5.0)
+Depends: R (>= 3.0.0)
 RoxygenNote: 7.2.3
 Suggests: testthat (>= 2.1.0)
 Encoding: UTF-8

@@ -3,7 +3,7 @@
 
 # Introduce
 
-The Chinese ID number contains a lot of information, this package helps you get the date of birth, age, age based on year, gender, region, zodiac, constellation information from the Chinese ID number.
+The Chinese ID number contains a lot of information, this package helps you get the date of birth, age, age based on year, gender, region, zodiac, constellation information from Chinese ID number.
 
 ## Installation
 
@@ -16,7 +16,7 @@ install.packages("CNID")
 
 ## Usage
 
-Obtain full information by ID number.
+Get full information by ID number.
 
 ``` r
 id = c(
@@ -26,13 +26,13 @@ id = c(
 cnid_info(id)
 ```
 
-Obtain days of a given year and month, such as february 2022.
+Get days of a given year and month, such as february 2022.
 
 ``` r
 mdays(2, 2022)
 ```
 
-Obtain date of birth, age, gender, etc.
+Get date of birth, age, gender, etc.
 
 ``` r
 id = c(
@@ -54,5 +54,4 @@ constellation(id)
 
 ## License
 
-ecce is free and open source software, licensed under MIT + file
-LICENSE.
+CNID is free and open source software, licensed under MIT + file LICENSE.
