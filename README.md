@@ -3,7 +3,7 @@
 
 # Introduce
 
-The Chinese ID number contains a lot of information, this package helps you get the date of birth, age, age based on year, gender, region, zodiac, constellation information from Chinese ID number.
+The Chinese ID number contains a lot of information, this package helps you get the date of birth, age, age based on year, gender, region, zodiac, constellation information from the Chinese ID number.
 
 ## Installation
 
