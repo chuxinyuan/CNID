@@ -1,16 +1,16 @@
-#' @title Obtain age information by ID number
+#' @title Get age information from ID number
 #'
 #' @description
-#' obtain age information by ID number, to the day.
+#' Get age information from ID number, to the day.
 #'
 #' @param id A vector of ID numbers.
 #'
-#' @return Age vector obtained by ID numbers.
+#' @return Age vector obtained from ID numbers.
 #'
 #' @examples
-#'
 #' id = c(
-#' "652801197305161555", 
+#' "652801197305161555",
+#' "130206202202291545", 
 #' "110101841125178"
 #' )
 #' age(id)

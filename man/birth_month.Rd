@@ -2,7 +2,7 @@
 % Please edit documentation in R/birth_month.R
 \name{birth_month}
 \alias{birth_month}
-\title{Obtain month of birth information by ID number}
+\title{Get month of birth information from ID number}
 \usage{
 birth_month(id)
 }
@@ -10,15 +10,15 @@ birth_month(id)
 \item{id}{A vector of ID numbers.}
 }
 \value{
-Month of birth vector obtained by ID numbers.
+Month of birth vector obtained from ID numbers.
 }
 \description{
-obtain month of birth information by ID number.
+Get month of birth information from ID number.
 }
 \examples{
-
 id = c(
-"652801197305161555", 
+"652801197305161555",
+"130206202202291545", 
 "110101841125178"
 )
 birth_month(id)

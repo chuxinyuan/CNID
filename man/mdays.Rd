@@ -2,23 +2,22 @@
 % Please edit documentation in R/mdays.R
 \name{mdays}
 \alias{mdays}
-\title{Obtain days of a given year and month.}
+\title{Calculate the number of days in a specified year and month}
 \usage{
-mdays(month, year = 2022)
+mdays(month, year = as.integer(format(Sys.Date(), "\%Y")))
 }
 \arguments{
 \item{month}{A given month, such as 2.}
 
-\item{year}{A given year, such as 2022.}
+\item{year}{A given year, the default is current year.}
 }
 \value{
-Days of a given year and month.
+Days in a specified year and month.
 }
 \description{
-obtain days of a given year and month.
+Calculate the number of days in a specified year and month.
 }
 \examples{
-
 mdays(2, 2022)
 
 }

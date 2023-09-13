@@ -2,7 +2,7 @@
 % Please edit documentation in R/age_by_year.R
 \name{age_by_year}
 \alias{age_by_year}
-\title{Obtain age information by ID number}
+\title{Get age information from ID number}
 \usage{
 age_by_year(id)
 }
@@ -10,15 +10,15 @@ age_by_year(id)
 \item{id}{A vector of ID numbers.}
 }
 \value{
-Age vector obtained by ID numbers.
+Age vector obtained from ID numbers.
 }
 \description{
-obtain age information by ID number, only by year, not the specific date.
+Get age information from ID number, only by year, not the specific date.
 }
 \examples{
-
 id = c(
-"652801197305161555", 
+"652801197305161555",
+"130206202202291545", 
 "110101841125178"
 )
 age_by_year(id)

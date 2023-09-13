@@ -1,18 +1,17 @@
-
-#' @title Obtain full information by ID number
+#' @title Get full information from ID number
 #'
 #' @description
-#' obtain full information by ID number.
+#' Get full information from ID number.
 #'
 #' @param id A vector of ID numbers.
 #'
-#' @return A list about date of birth, age, gender, etc. 
-#' obtained by ID number.
+#' @return A list about date of birth, age, gender, etc.
+#' obtained from ID number.
 #'
 #' @examples
-#'
 #' id = c(
-#' "652801197305161555", 
+#' "652801197305161555",
+#' "130206202202291545", 
 #' "110101841125178"
 #' )
 #' cnid_info(id)
@@ -200,8 +199,8 @@ cnid_info = function(id) {
   }
   
   # Parse constellation
-  get_constellation = function(birth_month, birth_day) {
-    constellations = c(
+  get_cstl = function(birth_month, birth_day) {
+    cstls = c(
       "\u6c34\u74f6\u5ea7", "\u53cc\u9c7c\u5ea7", 
       "\u767d\u7f8a\u5ea7", "\u91d1\u725b\u5ea7",
       "\u53cc\u5b50\u5ea7", "\u5de8\u87f9\u5ea7", 
@@ -223,39 +222,54 @@ cnid_info = function(id) {
       ) {
         xinzuo[i] = NA
       } else if ((m == 1 & d >= 20) | (m == 2 & d <= 18)) {
-        xinzuo[i] = constellations[1]  # shuiping(0120-0218)
+        xinzuo[i] = cstls[1]  # shuiping(0120-0218)
       } else if ((m == 2 & d >= 19) | (m == 3 & d <= 20)) {
-        xinzuo[i] = constellations[2]  # shuangyu(0219-0320)
+        xinzuo[i] = cstls[2]  # shuangyu(0219-0320)
       } else if ((m == 3 & d >= 21) | (m == 4 & d <= 19)) {
-        xinzuo[i] = constellations[3]  # baiyang(0321-0419)
+        xinzuo[i] = cstls[3]  # baiyang(0321-0419)
       } else if ((m == 4 & d >= 20) | (m == 5 & d <= 20)) {
-        xinzuo[i] = constellations[4]  # jinniu(0420-0520)
+        xinzuo[i] = cstls[4]  # jinniu(0420-0520)
       } else if ((m == 5 & d >= 21) | (m == 6 & d <= 20)) {
-        xinzuo[i] = constellations[5]  # shuangzi(0521-0620)
+        xinzuo[i] = cstls[5]  # shuangzi(0521-0620)
       } else if ((m == 6 & d >= 21) | (m == 7 & d <= 22)) {
-        xinzuo[i] = constellations[6]  # juxie(0621-0722)
+        xinzuo[i] = cstls[6]  # juxie(0621-0722)
       } else if ((m == 7 & d >= 23) | (m == 8 & d <= 22)) {
-        xinzuo[i] = constellations[7]  # shizi(0723-0822)
+        xinzuo[i] = cstls[7]  # shizi(0723-0822)
       } else if ((m == 8 & d >= 23) | (m == 9 & d <= 22)) {
-        xinzuo[i] = constellations[8]  # chunv(0823-0922)
+        xinzuo[i] = cstls[8]  # chunv(0823-0922)
       } else if ((m == 9 & d >= 23) | (m == 10 & d <= 22)) {
-        xinzuo[i] = constellations[9]  # tiancheng(0923-1022)
+        xinzuo[i] = cstls[9]  # tiancheng(0923-1022)
       } else if ((m == 10 & d >= 23) | (m == 11 & d <= 21)) {
-        xinzuo[i] = constellations[10]  # tianxie(1023-1121)
+        xinzuo[i] = cstls[10]  # tianxie(1023-1121)
       } else if ((m == 11 & d >= 22) | (m == 12 & d <= 21)) {
-        xinzuo[i] = constellations[11]  # sheshou(1122-1221)
+        xinzuo[i] = cstls[11]  # sheshou(1122-1221)
       } else if ((m == 12 & d >= 22) | (m == 1 & d <= 19)) {
-        xinzuo[i] = constellations[12]  # mojie(1222-0119)
+        xinzuo[i] = cstls[12]  # mojie(1222-0119)
       } else {
         xinzuo[i] = NA
       }
     }
     return(xinzuo)
   }
-  constellation = get_constellation(birth_month, birth_day)
+  cstl = get_cstl(birth_month, birth_day)
+  
+  # Check the ID number for logical problems
+  key = data.frame(
+    region, birth_year, birth_month,
+    birth_day, birth_date, gender
+  )
+  check_id = logical(length = length(id))
+  for (i in 1:length(id)) {
+    if (any(is.na(key[i, ]))) {
+      check_id[i] = FALSE
+    } else {
+      check_id[i] = TRUE
+    }
+  }
   
   # Generate result list
   result = list(
+    check_id = check_id,
     birth_year = birth_year,
     birth_month = birth_month,
     birth_day = birth_day,
@@ -265,12 +279,16 @@ cnid_info = function(id) {
     gender = gender,
     region = region,
     zodiac = zodiac,
-    constellation = constellation
+    cstl = cstl
   )
   
   # prompt
   if (all(nchar(id) %in% c(15, 18)) == FALSE) {
     warning("There are cases where the ID number is not 15 or 18 digits.")
+  }
+  
+  if (any(check_id == FALSE)) {
+    warning("There are cases where the ID number has a logical error.")
   }
   
   # Return final result

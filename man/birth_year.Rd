@@ -2,7 +2,7 @@
 % Please edit documentation in R/birth_year.R
 \name{birth_year}
 \alias{birth_year}
-\title{Obtain year of birth information by ID number}
+\title{Get year of birth information from ID number}
 \usage{
 birth_year(id)
 }
@@ -10,15 +10,15 @@ birth_year(id)
 \item{id}{A vector of ID numbers.}
 }
 \value{
-Year of birth vector obtained by ID numbers.
+Year of birth vector obtained from ID numbers.
 }
 \description{
-obtain year of birth information by ID number.
+Get year of birth information from ID number.
 }
 \examples{
-
 id = c(
-"652801197305161555", 
+"652801197305161555",
+"130206202202291545", 
 "110101841125178"
 )
 birth_year(id)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/birth_date.R
 \name{birth_date}
 \alias{birth_date}
-\title{Obtain date of birth information by ID number}
+\title{Get date of birth information from ID number}
 \usage{
 birth_date(id)
 }
@@ -10,15 +10,15 @@ birth_date(id)
 \item{id}{A vector of ID numbers.}
 }
 \value{
-Date of birth vector obtained by ID numbers.
+Date of birth vector obtained from ID numbers.
 }
 \description{
-obtain date of birth information by ID number.
+Get date of birth information from ID number.
 }
 \examples{
-
 id = c(
-"652801197305161555", 
+"652801197305161555",
+"130206202202291545", 
 "110101841125178"
 )
 birth_date(id)

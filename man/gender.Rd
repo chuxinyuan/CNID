@@ -2,7 +2,7 @@
 % Please edit documentation in R/gender.R
 \name{gender}
 \alias{gender}
-\title{Obtain gender information by ID number}
+\title{Get gender information from ID number}
 \usage{
 gender(id)
 }
@@ -10,15 +10,15 @@ gender(id)
 \item{id}{A vector of ID numbers.}
 }
 \value{
-Gender vector obtained by ID numbers.
+Gender vector obtained from ID numbers.
 }
 \description{
-obtain gender information by ID number.
+Get gender information from ID number.
 }
 \examples{
-
 id = c(
-"652801197305161555", 
+"652801197305161555",
+"130206202202291545", 
 "110101841125178"
 )
 gender(id)

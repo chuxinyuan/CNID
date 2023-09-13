@@ -2,7 +2,7 @@
 % Please edit documentation in R/region.R
 \name{region}
 \alias{region}
-\title{Obtain region information by ID number}
+\title{Get region information from ID number}
 \usage{
 region(id)
 }
@@ -10,15 +10,15 @@ region(id)
 \item{id}{A vector of ID numbers.}
 }
 \value{
-Region vector obtained by ID numbers.
+Region vector obtained from ID numbers.
 }
 \description{
-obtain region information by ID number.
+Get region information from ID number.
 }
 \examples{
-
 id = c(
-"652801197305161555", 
+"652801197305161555",
+"130206202202291545", 
 "110101841125178"
 )
 region(id)

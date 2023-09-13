@@ -2,7 +2,7 @@
 % Please edit documentation in R/zodiac.R
 \name{zodiac}
 \alias{zodiac}
-\title{Obtain zodiac information by ID number}
+\title{Get zodiac information from ID number}
 \usage{
 zodiac(id)
 }
@@ -10,15 +10,15 @@ zodiac(id)
 \item{id}{A vector of ID numbers.}
 }
 \value{
-Zodiac vector obtained by ID numbers.
+Zodiac vector obtained from ID numbers.
 }
 \description{
-obtain zodiac information by ID number.
+Get zodiac information from ID number.
 }
 \examples{
-
 id = c(
-"652801197305161555", 
+"652801197305161555",
+"130206202202291545", 
 "110101841125178"
 )
 zodiac(id)
