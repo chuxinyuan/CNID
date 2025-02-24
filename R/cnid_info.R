@@ -20,7 +20,7 @@
 
 #------------------------------------------------------------------------------#
 
-cnid_info = \(id) {
+cnid_info = function(id) {
   
   # Administrative division code data
   region_data = data.frame(
@@ -52,7 +52,7 @@ cnid_info = \(id) {
     )
   )
   
-  process_id = \(x) {
+  process_id = function(x) {
     # Initializes the result list
     res = list(
       id_type = NA,
@@ -160,7 +160,7 @@ cnid_info = \(id) {
         }
       }
       
-    }, error = \(e) {
+    }, error = function(e) {
       message(paste("ERROR:", e$message))
     })
     
@@ -173,17 +173,17 @@ cnid_info = \(id) {
   # Convert to a data frame
   data.frame(
     id = id,
-    id_type = sapply(result, \(x) x$id_type),
-    check = sapply(result, \(x) x$check),
-    warning = sapply(result, \(x) x$warning),
-    valid = sapply(result, \(x) x$valid),
-    region = sapply(result, \(x) x$region),
-    gender = sapply(result, \(x) x$gender),
-    birth_date = as.Date(sapply(result, \(x) x$birth_date), origin = "1970-01-01"),
-    age = sapply(result, \(x) x$age),
-    age_by_year = sapply(result, \(x) x$age_by_year),
-    zodiac = sapply(result, \(x) x$zodiac),
-    cstl = sapply(result, \(x) x$cstl),    
+    id_type = sapply(result, function(x) x$id_type),
+    check = sapply(result, function(x) x$check),
+    warning = sapply(result, function(x) x$warning),
+    valid = sapply(result, function(x) x$valid),
+    region = sapply(result, function(x) x$region),
+    gender = sapply(result, function(x) x$gender),
+    birth_date = as.Date(sapply(result, function(x) x$birth_date), origin = "1970-01-01"),
+    age = sapply(result, function(x) x$age),
+    age_by_year = sapply(result, function(x) x$age_by_year),
+    zodiac = sapply(result, function(x) x$zodiac),
+    cstl = sapply(result, function(x) x$cstl),    
     stringsAsFactors = FALSE
   )
 }

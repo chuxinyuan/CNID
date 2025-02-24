@@ -1,10 +1,10 @@
 Package: CNID
 Type: Package
 Title: Get Basic Information from Chinese ID Number
-Version: 2.0.0
+Version: 2.0.1
 Authors@R: person("Xinyuan", "Chu", email = "chuxinyuan@outlook.com", role = c("aut", "cre"))
 Maintainer: Xinyuan Chu <chuxinyuan@outlook.com>
-Date: 2025-02-24 16:08:06 UTC
+Date: 2025-02-24 16:44:06 UTC
 Description: The Chinese ID number contains a lot of information,
     this package helps you get the date of birth, age, age based
     on year, gender, region, zodiac, constellation information from

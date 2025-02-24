@@ -16,7 +16,7 @@
 
 #------------------------------------------------------------------------------#
 
-mdays = \(year, month) {
+mdays = function(year, month) {
   days = c(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)[month]
   days[month == 2 & leap_year(year)] = 29  # February in leap years has 29 days
   days
