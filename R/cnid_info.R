@@ -5,17 +5,17 @@
 #'
 #' @param id A vector of ID numbers.
 #'
-#' @return A list about date of birth, age, gender, etc.
+#' @return A data frame about date of birth, age, gender, etc.
 #' obtained from ID number.
 #'
 #' @examples
 #' id = c(
-#' "653127198503161793",
-#' "652801197305161555",
-#' "130206202202291545", 
-#' "110101841125178",
-#' "12345678",
-#' "65312a198204181793"
+#'   "653127198503161793",
+#'   "652801197305161555",
+#'   "130206202202291545", 
+#'   "110101841125178",
+#'   "12345678",
+#'   "65312a198204181793"
 #' )
 #' cnid_info(id)
 #'
@@ -117,6 +117,7 @@ cnid_info = function(id) {
           "\u901a\u8fc7", 
           "\u4e0d\u901a\u8fc7"
         )
+        
         if (res$check == "\u4e0d\u901a\u8fc7") {
           res$note = paste0(
             res$note, "[", "\u6821\u9a8c\u7801\u6821\u9a8c\u5931\u8d25", "]"
