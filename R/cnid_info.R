@@ -160,13 +160,16 @@ cnid_info = function(id) {
           as.integer(format(birth, "%Y"))
         
         # Chinese zodiac processing
-        calendar_data$date = as.Date(gsub("-", "", calendar_data$date), "%Y%m%d")
-        calendar_data$year = format(calendar_data$date, "%Y")
-        sfdate = calendar_data$date[format(birth, "%Y") == calendar_data$year]
-        index = (as.integer(format(birth, "%Y")) - 1900) %% 12 + 1 - 
-          (format(birth, "%m%d") < format(sfdate, "%m%d"))
-        res$zodiac = zodiacs[index]
-        
+        y = as.integer(format(birth, "%Y"))
+        if (y >= 1800 & y <= 2200) {
+          calendar_data$date = as.Date(gsub("-", "", calendar_data$date), "%Y%m%d")
+          calendar_data$year = format(calendar_data$date, "%Y")
+          sfdate = calendar_data$date[format(birth, "%Y") == calendar_data$year]
+          index = (as.integer(format(birth, "%Y")) - 1900) %% 12 + 1 - 
+            (format(birth, "%m%d") < format(sfdate, "%m%d"))
+          res$zodiac = zodiacs[index]
+        }
+
         # constellation
         m = as.integer(format(birth, "%m"))
         d = as.integer(format(birth, "%d"))
